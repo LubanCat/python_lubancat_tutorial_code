@@ -1,21 +1,20 @@
-import sys
-import time
+"""Digital IO (Input/Output) using periphery"""
 from periphery import GPIO
 
-if len(sys.argv) > 2:
-    LED_CHIP = "/dev/gpiochip" + sys.argv[1]
-    LED_LINE_OFFSET = int(sys.argv[2])
-else:
-    print(
-        """Usage:
-    python3 blink.py <chip> <line offset>"""
-    )
-    sys.exit()
+# 根据具体板卡的LED灯和按键连接修改使用的Chip和Line
+LED_CHIP = "/dev/gpiochip3"
+LED_LINE_OFFSET = 19
+
+BUTTON_CHIP = "/dev/gpiochip4"
+BUTTON_LINE_OFFSET = 1
 
 led = GPIO(LED_CHIP, LED_LINE_OFFSET, "out")
+button = GPIO(BUTTON_CHIP, BUTTON_LINE_OFFSET, "in")
 
-while True:
-    led.write(False)
-    time.sleep(0.1)
+try:
+    while True:
+        led.write(button.read())
+finally:
     led.write(True)
-    time.sleep(0.1)
+    led.close()
+    button.close()
