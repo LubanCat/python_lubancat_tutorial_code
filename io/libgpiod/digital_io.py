@@ -1,5 +1,7 @@
+"""Digital IO (Input/Output) using libgpiod"""
 import gpiod
 
+# 根据具体板卡的LED灯和按键连接修改使用的Chip和Line
 LED_LINE_OFFSET = 19
 BUTTON_LINE_OFFSET = 1
 
