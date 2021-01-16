@@ -1,10 +1,14 @@
+"""Digital IO (Input/Output) using Blinka"""
 import board
 import digitalio
 
-led = digitalio.DigitalInOut(board.GPIO_PC33)  # pin 37
+# 根据具体板卡的LED灯和按键连接修改使用的GPIO
+# LubanCat i.MX6ULL board, GPIO_PC32 = Pin 115
+led = digitalio.DigitalInOut(board.GPIO_PC32)
 led.direction = digitalio.Direction.OUTPUT
 
-button = digitalio.DigitalInOut(board.GPIO_PD17)  # pin 36
+# LubanCat i.MX6ULL board, GPIO_PD17 = Pin 129
+button = digitalio.DigitalInOut(board.GPIO_PD17)
 button.direction = digitalio.Direction.INPUT
 
 try:
