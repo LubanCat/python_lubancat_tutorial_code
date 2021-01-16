@@ -1,5 +1,6 @@
 # 导入json、requests包
-import json, requests
+import json
+import requests
 
 # 输入地点
 weather_place = "东莞"
@@ -18,7 +19,7 @@ weather_url = "http://wthrcdn.etouch.cn/weather_mini?city=%s" % (weather_place)
 response = requests.get(weather_url)
 try:
     response.raise_for_status()
-except:
+except response.HTTPError:
     print("请求信息出错")
 
 # 将json文件格式导入成python的格式

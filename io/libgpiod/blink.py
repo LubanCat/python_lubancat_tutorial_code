@@ -1,5 +1,5 @@
-import gpiod
 import time
+import gpiod
 
 LED_LINE_OFFSET = 19
 

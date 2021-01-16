@@ -1,6 +1,6 @@
-from periphery import GPIO
 import sys
 import time
+from periphery import GPIO
 
 if len(sys.argv) > 2:
     LED_CHIP = "/dev/gpiochip" + sys.argv[1]
