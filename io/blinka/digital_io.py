@@ -8,9 +8,9 @@ button = digitalio.DigitalInOut(board.GPIO_PD17)  # pin 36
 button.direction = digitalio.Direction.INPUT
 
 try:
-  while True:
-    led.value = button.value
+    while True:
+        led.value = button.value
 finally:
-  led.value = True
-  led.deinit()
-  button.deinit()
+    led.value = True
+    led.deinit()
+    button.deinit()
