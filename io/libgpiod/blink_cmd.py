@@ -8,9 +8,11 @@ if len(sys.argv) > 2:
     LED_CHIP = sys.argv[1]
     LED_LINE_OFFSET = int(sys.argv[2])
 else:
-    print('''Usage:
+    print(
+        """Usage:
     python3 blink_cmd.py <chip> <line offset>
-    example: python3 blink_cmd.py 3 19''')
+    example: python3 blink_cmd.py 3 19"""
+    )
     sys.exit()
 
 led = gpiod.Chip(LED_CHIP).get_line(LED_LINE_OFFSET)
