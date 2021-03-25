@@ -3,9 +3,9 @@
 
 本项目代码通过git开源：
 
--   github仓库地址：https://github.com/LubanCat/python\_lubancat\_tutorial\_code
+-   github仓库地址：https://github.com/LubanCat/python_lubancat_tutorial_code
 -   gitee
-    仓库地址：https://gitee.com/LubanCat/python\_lubancat\_tutorial\_code
+    仓库地址：https://gitee.com/LubanCat/python_lubancat_tutorial_code
 
 点击右侧链接可在线阅读本项目文档：《[鲁班猫Python应用开发实践](https://doc.embedfire.com/lubancat/python/)》
 
