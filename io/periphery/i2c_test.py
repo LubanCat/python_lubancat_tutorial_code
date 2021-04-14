@@ -84,7 +84,7 @@ def oled_fill(filldata):
         # low column start address
         oled_write_cmd(0x10)
         # high column start address
-        for j in range(128):
+        for _ in range(128):
             oled_write_data(filldata)
 
 

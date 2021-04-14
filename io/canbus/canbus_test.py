@@ -97,6 +97,7 @@ with can.interface.Bus(
         msg_sendThread.start()
         print("information: 开始启动 msg_recvThread 线程!")
         msg_recvThread.start()
+    # pylint: disable=W0702
     except:
         print("error: 创建或启动线程中出错!")
         sys.exit()

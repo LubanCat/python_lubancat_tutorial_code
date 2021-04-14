@@ -1,5 +1,6 @@
 """ 使用pygame进行屏幕测试 """
 import os
+import sys
 import time
 import pygame
 
@@ -75,4 +76,4 @@ scope = PyScope()
 # 调用scope类的测试方法
 scope.test()
 time.sleep(3)
-exit()
+sys.exit()

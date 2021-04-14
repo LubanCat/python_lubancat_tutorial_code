@@ -1,5 +1,7 @@
 """ blinka spi 测试 """
 import busio
+
+# pylint: disable=W0401
 from board import *
 
 # 数据发送、接受缓冲区
@@ -8,6 +10,7 @@ InBuffer = bytearray(4)
 
 try:
     # 申请spi资源
+    # pylint: disable=E0602
     spi = busio.SPI(SCLK, MOSI, MISO)
 
     # 配置时先锁定SPI

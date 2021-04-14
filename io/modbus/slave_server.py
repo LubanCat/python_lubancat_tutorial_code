@@ -6,7 +6,7 @@ import os
 import logging
 
 from pymodbus.framer.rtu_framer import ModbusRtuFramer
-from pymodbus.server.sync import StartTcpServer, StartSerialServer
+from pymodbus.server.sync import StartSerialServer  # ,StartTcpServer
 from pymodbus.datastore import (
     ModbusSequentialDataBlock,
     ModbusSlaveContext,
@@ -40,9 +40,9 @@ if __name__ == "__main__":
     # 定义di离散输入寄存器，存储起始地址为0，长度为20，内容为15个True及5个False
     di_block = ModbusSequentialDataBlock(0, [True] * 15 + [False] * 5)
     # 定义ir输入寄存器，存储起始地址为0，长度为10，内容为0~10递增数值列表
-    ir_block = ModbusSequentialDataBlock(0, [i for i in range(10)])
+    ir_block = ModbusSequentialDataBlock(0, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     # 定义hr保持寄存器，存储起始地址为0，长度为10，内容为0~10递增数值列表
-    hr_block = ModbusSequentialDataBlock(0, [i for i in range(10)])
+    hr_block = ModbusSequentialDataBlock(0, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
     # 创建从机，从机的di离散量、co线圈、hr保持寄存器、ir输入寄存器等由上面定义并传入
     slaves = ModbusSlaveContext(di=di_block, co=co_block, hr=hr_block, ir=ir_block)

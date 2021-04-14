@@ -1,5 +1,6 @@
 """ 使用pygame进行屏幕测试 """
 import os
+import sys
 import time
 import pygame
 
@@ -27,4 +28,4 @@ screen.blit(ball, ballrect)
 pygame.display.flip()
 
 time.sleep(5)
-exit()
+sys.exit()

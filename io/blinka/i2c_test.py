@@ -1,4 +1,5 @@
 """ blinka i2c 测试 使用0.96寸OLED模块 """
+# pylint: disable=W0401
 from board import *
 import busio
 
@@ -42,6 +43,7 @@ InBuffer = bytearray(1)
 
 try:
     # 申请i2c资源
+    # pylint: disable=E0602
     i2c = busio.I2C(SCL, SDA)
     # 扫描I2C设备地址，测试
     print("挂载I2C总线上的I2C设备地址有")

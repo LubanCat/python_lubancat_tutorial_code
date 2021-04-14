@@ -9,6 +9,7 @@ client implementation from pymodbus with ayncio.
 The example is only valid on Python3.4 and above
 """
 import os
+import sys
 from pymodbus.compat import IS_PYTHON3, PYTHON_VERSION
 
 if IS_PYTHON3 and PYTHON_VERSION >= (3, 4):
@@ -19,9 +20,7 @@ if IS_PYTHON3 and PYTHON_VERSION >= (3, 4):
     )
     from pymodbus.client.asynchronous import schedulers
 else:
-    import sys
-
-    sys.stderr("This example needs to be run only on python 3.4 and above")
+    print("This example needs to be run only on python 3.4 and above")
     sys.exit(1)
 
 # --------------------------------------------------------------------------- #
@@ -56,7 +55,7 @@ async def start_async_test(client):
         rr = await client.read_coils(0, 1, unit=UNIT)
 
         assert rq.function_code < 0x80  # 检测写线圈测试响应是否正常
-        assert rr.bits[0] == True  # 检测读线圈测试读取的值是否为True
+        assert rr.bits[0] is True  # 检测读线圈测试读取的值是否为True
         # --------------------------------------------------------------------------- #
         # --------------------------------------------------------------------------- #
         log.debug("\nINFO : 写入多个线圈测试----写入的寄存器起始地址为1，写入8个值均为True，写入的从机地址为0x01")
@@ -131,12 +130,11 @@ async def start_async_test(client):
         # read_input_registers 读取输入寄存器功能，参数：输入寄存器的起始地址、读取输入寄存器的数量、从机地址
         rr = await client.read_input_registers(1, 8, unit=UNIT)
         assert rq.function_code < 0x80
+    # pylint: disable=W0703
     except Exception as e:
         log.exception(e)
         client.transport.close()
     await asyncio.sleep(0.5)
-    import sys
-
     sys.exit()
 
 

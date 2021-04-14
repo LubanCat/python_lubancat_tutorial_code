@@ -14,6 +14,7 @@ else:
     )
     sys.exit()
 
+# pylint: disable=C0413
 import pygame
 
 exitright = "e"
@@ -22,6 +23,7 @@ exitright = "e"
 def get_quitc():
     "获取退出字符"
     # 全局变量
+    # pylint: disable=W0603
     global exitright
     # 获取用户输入
     exitright = input("输入字母q后，按下回车以退出播放\n")
@@ -49,7 +51,7 @@ try:
     while pygame.mixer.music.get_busy():
         # 空闲延时，释放cpu
         if exitright in ("q", "Q"):
-            raise
+            break
         time.sleep(1)
 except pygame.error as error:
     print("执行程序时出现异常:", error, "\n等待音频资源被释放")
